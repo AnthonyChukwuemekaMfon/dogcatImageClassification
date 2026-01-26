@@ -7,4 +7,7 @@ matplotlib
 plotly
 seaborn
 joblib
-
+opencv-python
+tensorflow
+tensorflow-hub
+pillow
