@@ -7,7 +7,7 @@ matplotlib
 plotly
 seaborn
 joblib
-opencv-python-headless==4.8.1.78
-tensorflow
-tensorflow-hub
-pillow
+opencv-python==4.9.0.80
+tensorflow==2.15.0
+tensorflow-hub==0.16.1
+pillow==11.3.0
