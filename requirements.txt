@@ -10,4 +10,3 @@ tensorflow>=2.15,<2.16
 tensorflow-hub>=0.13,<1
 pillow>=9.0,<10.0
 opencv-python
-otter-grader
