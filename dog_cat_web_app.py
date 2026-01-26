@@ -1,0 +1,37 @@
+import streamlit as st
+import numpy as np
+from tensorflow.keras.models import load_model
+from PIL import Image
+import cv2
+
+@st.cache_resource # Ensures the model runs only once
+# Loading the model
+def load_my_model():
+    return load_model()
+model = load_model("pretrained model")
+# Giving the app a title
+st.title("Dog VS Cat Image Classification Project")
+# Allowing image upload
+uploaded_file = st.file_uploader("Upload an image:", type=["jpg", "png", "jpeg"])
+if uploaded_file:
+    # Convert uploaded file to an image
+    img = Image.open(uploaded_file)
+    # Displaying the uploaded image
+    st.image(img, caption="Uploaded image", use_container_width=True)
+    # Convert to numpy array
+    img = np.asarray(img)
+    # Resizing the image
+    img = cv2.resize(img, (224, 224))
+    # Scale the image
+    img_scaled = img/255
+    # Reshape as an instance
+    img_reshape = np.reshape(img_scaled, [1, 224, 224, 3])
+    # Making prediction
+    img_prediction = model.predict(img_reshape)
+    # Converting the predictive result to labels
+    img_pred_label = np.argmax(img_prediction)
+    # Condition for prediction
+    if img_pred_label == 0:
+        st.success("✅This is a **cat** image")
+    else:
+        st.success("✅This is a **dog** image")
