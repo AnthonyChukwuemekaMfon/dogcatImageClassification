@@ -2,13 +2,12 @@ import streamlit as st
 import numpy as np
 from tensorflow.keras.models import load_model
 from PIL import Image
-import cv2
 
 @st.cache_resource # Ensures the model runs only once
 # Loading the model
 def load_my_model():
     return load_model("pretrained model")
-model = load_model("pretrained model")
+model = load_model()
 # Giving the app a title
 st.title("Dog VS Cat Image Classification Project")
 # Allowing image upload
