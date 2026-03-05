@@ -7,7 +7,7 @@ from PIL import Image
 # Loading the model
 def load_my_model():
     return load_model("pretrained model")
-model = load_model()
+model = load_my_model()
 # Giving the app a title
 st.title("Dog VS Cat Image Classification Project")
 # Allowing image upload
